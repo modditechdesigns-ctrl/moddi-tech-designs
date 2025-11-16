@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moddi Tech Design - Modern UI/UX, Websites, Branding, and Digital Identity. Transform your digital presence with our innovative designs.">
+  <meta name="keywords" content="UI/UX design, web development, branding, digital identity, Moddi Tech">
+  <title>Moddi Tech Design | Digital Innovation & Design Solutions</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="logo">Moddi<span>Tech</span><span class="dot"></span></a>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" id="mobileMenu" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <button id="loginBtn" class="login-btn" aria-label="Login to your account">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Hero section">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Designs That Transform Your Digital Presence</h1>
+          <p>
+            Modern UI/UX. Websites. Branding. Social Content. Digital Identity. We create digital experiences that captivate and convert.
+          </p>
+
+          <form id="waitlist-form" aria-label="Join waitlist form">
+            <div class="waitlist-form">
+              <input type="email" id="email" name="email" placeholder="Enter your email" required aria-required="true" />
+              <button type="submit">Join Waitlist</button>
+            </div>
+            <div id="message" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-label="About section">
+      <div class="container">
+        <div class="about-content">
+          <h2>About Us</h2>
+          <p>
+            We craft intuitive, visually appealing digital designs that elevate your brand and engage your audience. Our team combines creative vision with technical expertise to deliver solutions that drive results.
+          </p>
+          <a href="realv.html" class="cta-btn">Our Vision</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio" aria-label="Portfolio section">
+      <div class="container">
+        <h2>Our Work</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Platform" loading="lazy" />
+            <div class="portfolio-overlay">
+              <h3>E-commerce Platform</h3>
+              <p>UI/UX Design & Development</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mobile App Design" loading="lazy" />
+            <div class="portfolio-overlay">
+              <h3>Fitness Mobile App</h3>
+              <p>UI/UX Design & Branding</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Identity" loading="lazy" />
+            <div class="portfolio-overlay">
+              <h3>Tech Startup Branding</h3>
+              <p>Visual Identity & Strategy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-label="Contact section">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <p>Have a project in mind? Let's discuss how we can bring your vision to life.</p>
+        <a class="contact-email" href="mailto:modditechdesign@gmail.com">
+          <i class="fas fa-envelope"></i> modditechdesign@gmail.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" id="closeLogin" aria-label="Close modal">✕</button>
+      
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Login</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active">
+        <h2>Welcome Back</h2>
+        <input type="email" name="login-email" placeholder="Email Address" required />
+        <input type="password" name="login-password" placeholder="Password" required />
+        <button type="submit" class="cta-btn full-width">Login</button>
+        <p class="auth-switch">Don't have an account? <a href="#" class="switch-to-signup">Sign up</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="auth-form">
+        <h2>Join Our Community</h2>
+        <div class="form-row">
+          <input type="text" name="first-name" placeholder="First Name" required />
+          <input type="text" name="last-name" placeholder="Last Name" />
+        </div>
+        <input type="email" name="signup-email" placeholder="Email Address" required />
+        <input type="password" name="signup-password" placeholder="Password" required />
+        <select name="user-role" required>
+          <option value="">Select Your Role</option>
+          <option value="client">Client</option>
+          <option value="designer">Designer</option>
+          <option value="partner">Partner</option>
+        </select>
+        <button type="submit" class="cta-btn full-width">Create Account</button>
+        <p class="auth-switch">Already have an account? <a href="#" class="switch-to-login">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD MODAL -->
+  <div id="dashboardModal" class="modal" aria-hidden="true">
+    <div class="modal-content dashboard-content">
+      <button class="close-modal" id="closeDashboard" aria-label="Close dashboard">✕</button>
+      
+      <div class="dashboard-header">
+        <div class="user-info">
+          <div class="user-avatar" id="userAvatar">👤</div>
+          <div>
+            <h2 id="userName">Welcome</h2>
+            <div class="user-role-badge" id="userRoleBadge">Guest</div>
+          </div>
+        </div>
+        <div class="dashboard-stats">
+          <div class="stat">
+            <span class="stat-number" id="newsCount">0</span>
+            <span class="stat-label">Posts</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="communityCount">0</span>
+            <span class="stat-label">Members</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="likesCount">0</span>
+            <span class="stat-label">Likes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-tabs">
+        <button class="tab-btn active" data-tab="news">
+          <i class="fas fa-newspaper"></i> News Feed
+        </button>
+        <button class="tab-btn" data-tab="community">
+          <i class="fas fa-users"></i> Community
+        </button>
+        <button class="tab-btn" data-tab="profile">
+          <i class="fas fa-user"></i> Profile
+        </button>
+      </div>
+
+      <div class="tab-content active" id="newsTab">
+        <div class="tab-header">
+          <h3>Community Updates</h3>
+          <button class="btn-primary" id="createNewsBtn">
+            <i class="fas fa-plus"></i> New Post
+          </button>
+        </div>
+<select id="privacySelector" class="privacy-selector">
+    <option value="public">🌐 Public</option>
+    <option value="friends">👥 Friends Only</option>
+    <option value="private">🔒 Private</option>
+</select>
+        
+        <!-- UPDATED CREATE POST FORM WITH IMAGE UPLOAD -->
+        <div class="create-post" id="createNewsForm" style="display: none;">
+          <textarea id="newsContent" placeholder="Share an update with the community..." rows="3"></textarea>
+          
+          <!-- Image Upload Section -->
+          <div class="image-upload-section">
+            <label class="image-upload-label">
+              <i class="fas fa-camera"></i>
+              <span>Add Photo (Optional - Max 2MB)</span>
+              <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            </label>
+            <div id="imagePreview" class="image-preview" style="display: none;">
+              <img id="previewImg" src="" alt="Preview">
+              <button type="button" class="remove-image-btn" id="removeImageBtn">✕</button>
+            </div>
+            <div id="uploadProgress" class="upload-progress" style="display: none;">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <span>Processing image...</span>
+            </div>
+          </div>
+          
+          <div class="post-actions">
+            <button class="btn-primary" id="postNewsBtn">Post Update</button>
+            <button class="btn-secondary" id="cancelNewsBtn">Cancel</button>
+          </div>
+        </div>
+        
+        <div class="news-feed" id="newsFeed">
+          <div class="empty-state">
+            <i class="fas fa-newspaper"></i>
+            <h4>No Posts Yet</h4>
+            <p>Be the first to share an update!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="communityTab">
+        <div class="tab-header">
+          <h3>Community Members</h3>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search users..." id="userSearch">
+          </div>
+        </div>
+        
+        <div class="users-grid" id="usersList">
+          <!-- Users will be loaded here -->
+        </div>
+      </div>
+
+      <div class="tab-content" id="profileTab">
+        <div class="profile-section">
+          <div class="profile-header">
+            <div class="profile-avatar-large" id="profileAvatar">👤</div>
+            <div class="profile-info">
+              <h3 id="profileName">User Name</h3>
+              <p id="profileEmail">user@example.com</p>
+              <div class="profile-role" id="profileRole">Role</div>
+              <p class="join-date">Member since <span id="joinDate">2024</span></p>
+            </div>
+          </div>
+          
+          <div class="profile-actions">
+            <button class="btn-secondary" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="socials">
+        <a href="https://twitter.com/modditech" class="social-icon" aria-label="Twitter">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/company/modditech" class="social-icon" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://instagram.com/modditech" class="social-icon" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <p class="copyright">© 2025 Moddi Tech Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
