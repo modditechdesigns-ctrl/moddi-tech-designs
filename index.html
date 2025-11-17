@@ -8,8 +8,39 @@
   <title>Moddi Tech Design | Digital Innovation & Design Solutions</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Moddi Tech Design | Digital Innovation & Design Solutions">
+  <meta property="og:description" content="Modern UI/UX, Websites, Branding, and Digital Identity. Transform your digital presence with our innovative designs.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+  <meta property="og:url" content="https://modditech.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Moddi Tech Design">
+  <meta name="twitter:description" content="Modern UI/UX, Websites, Branding, and Digital Identity">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Moddi Tech Design",
+    "description": "Digital design and development agency specializing in UI/UX, web development, and branding",
+    "url": "https://modditech.com",
+    "logo": "https://modditech.com/logo.png",
+    "sameAs": [
+      "https://twitter.com/modditech",
+      "https://linkedin.com/company/modditech",
+      "https://instagram.com/modditech"
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- NAVBAR -->
   <header class="navbar">
     <a href="#home" class="logo">Moddi<span>Tech</span><span class="dot"></span></a>
@@ -23,13 +54,13 @@
     <nav class="nav-links" id="mobileMenu" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="#contact">Contact</a>
       <button id="loginBtn" class="login-btn" aria-label="Login to your account">Login</button>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- HERO -->
     <section class="hero" id="home" aria-label="Hero section">
       <div class="container">
@@ -106,7 +137,7 @@
   </main>
 
   <!-- LOGIN MODAL -->
-  <div id="loginModal" class="modal" aria-hidden="true">
+  <div id="loginModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="loginTitle">
     <div class="modal-content">
       <button class="close-modal" id="closeLogin" aria-label="Close modal">✕</button>
       
@@ -117,9 +148,14 @@
 
       <!-- Login Form -->
       <form id="loginForm" class="auth-form active">
-        <h2>Welcome Back</h2>
-        <input type="email" name="login-email" placeholder="Email Address" required />
-        <input type="password" name="login-password" placeholder="Password" required />
+        <h2 id="loginTitle">Welcome Back</h2>
+        <input type="email" name="login-email" placeholder="Email Address" required aria-required="true" />
+        <div class="password-input-group">
+          <input type="password" name="login-password" placeholder="Password" required aria-required="true" />
+          <button type="button" class="password-toggle" aria-label="Show password">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
         <button type="submit" class="cta-btn full-width">Login</button>
         <p class="auth-switch">Don't have an account? <a href="#" class="switch-to-signup">Sign up</a></p>
       </form>
@@ -128,12 +164,17 @@
       <form id="signupForm" class="auth-form">
         <h2>Join Our Community</h2>
         <div class="form-row">
-          <input type="text" name="first-name" placeholder="First Name" required />
+          <input type="text" name="first-name" placeholder="First Name" required aria-required="true" />
           <input type="text" name="last-name" placeholder="Last Name" />
         </div>
-        <input type="email" name="signup-email" placeholder="Email Address" required />
-        <input type="password" name="signup-password" placeholder="Password" required />
-        <select name="user-role" required>
+        <input type="email" name="signup-email" placeholder="Email Address" required aria-required="true" />
+        <div class="password-input-group">
+          <input type="password" name="signup-password" placeholder="Password" required aria-required="true" />
+          <button type="button" class="password-toggle" aria-label="Show password">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <select name="user-role" required aria-required="true">
           <option value="">Select Your Role</option>
           <option value="client">Client</option>
           <option value="designer">Designer</option>
@@ -146,7 +187,7 @@
   </div>
 
   <!-- DASHBOARD MODAL -->
-  <div id="dashboardModal" class="modal" aria-hidden="true">
+  <div id="dashboardModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="dashboardTitle">
     <div class="modal-content dashboard-content">
       <button class="close-modal" id="closeDashboard" aria-label="Close dashboard">✕</button>
       
@@ -188,33 +229,34 @@
 
       <div class="tab-content active" id="newsTab">
         <div class="tab-header">
-          <h3>Community Updates</h3>
+          <h3 id="dashboardTitle">Community Updates</h3>
           <button class="btn-primary" id="createNewsBtn">
             <i class="fas fa-plus"></i> New Post
           </button>
         </div>
-<select id="privacySelector" class="privacy-selector">
-    <option value="public">🌐 Public</option>
-    <option value="friends">👥 Friends Only</option>
-    <option value="private">🔒 Private</option>
-</select>
         
-        <!-- UPDATED CREATE POST FORM WITH IMAGE UPLOAD -->
-        <div class="create-post" id="createNewsForm" style="display: none;">
-          <textarea id="newsContent" placeholder="Share an update with the community..." rows="3"></textarea>
+        <select id="privacySelector" class="privacy-selector" aria-label="Post privacy setting">
+          <option value="public">🌐 Public</option>
+          <option value="friends">👥 Friends Only</option>
+          <option value="private">🔒 Private</option>
+        </select>
+        
+        <!-- CREATE POST FORM WITH IMAGE UPLOAD -->
+        <div class="create-post" id="createNewsForm">
+          <textarea id="newsContent" placeholder="Share an update with the community..." rows="3" aria-label="Post content"></textarea>
           
           <!-- Image Upload Section -->
           <div class="image-upload-section">
             <label class="image-upload-label">
               <i class="fas fa-camera"></i>
               <span>Add Photo (Optional - Max 2MB)</span>
-              <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+              <input type="file" id="imageUpload" accept="image/*" class="file-input-hidden" aria-label="Upload image">
             </label>
-            <div id="imagePreview" class="image-preview" style="display: none;">
+            <div id="imagePreview" class="image-preview">
               <img id="previewImg" src="" alt="Preview">
-              <button type="button" class="remove-image-btn" id="removeImageBtn">✕</button>
+              <button type="button" class="remove-image-btn" id="removeImageBtn" aria-label="Remove image">✕</button>
             </div>
-            <div id="uploadProgress" class="upload-progress" style="display: none;">
+            <div id="uploadProgress" class="upload-progress">
               <div class="progress-bar">
                 <div class="progress-fill"></div>
               </div>
@@ -242,7 +284,7 @@
           <h3>Community Members</h3>
           <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search users..." id="userSearch">
+            <input type="text" placeholder="Search users..." id="userSearch" aria-label="Search users">
           </div>
         </div>
         
@@ -277,18 +319,23 @@
   <footer>
     <div class="container">
       <div class="socials">
-        <a href="https://twitter.com/modditech" class="social-icon" aria-label="Twitter">
+        <a href="https://x.com/ModdiTech16116?t=QTn0usoDDeTNqng0yEYj9g&s=09" class="social-icon" aria-label="Twitter">
           <i class="fab fa-x-twitter"></i>
         </a>
-        <a href="https://linkedin.com/company/modditech" class="social-icon" aria-label="LinkedIn">
+        <a href="www.linkedin.com/in/moddi-tech-designs-58a114392" class="social-icon" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://instagram.com/modditech" class="social-icon" aria-label="Instagram">
+        <a href="https://www.instagram.com/moddi.techdesigns/" class="social-icon" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
       <p class="copyright">© 2025 Moddi Tech Design. All rights reserved.</p>
     </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>    </div>
   </footer>
 
   <script src="script.js"></script>
